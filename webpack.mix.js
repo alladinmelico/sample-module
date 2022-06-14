@@ -1,17 +1,14 @@
+const dotenvExpand = require('dotenv-expand');
+dotenvExpand(require('dotenv').config({ path: '../../.env'/*, debug: true*/}));
+
 const mix = require('laravel-mix');
+require('laravel-mix-merge-manifest');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel applications. By default, we are compiling the CSS
- | file for the application as well as bundling up all the JS files.
- |
- */
+mix.setPublicPath('../../public').mergeManifest();
 
-mix.js('resources/js/app.js', 'public/js')
-    .postCss('resources/css/app.css', 'public/css', [
-        //
-    ]);
+mix.js(__dirname + '/Resources/assets/js/app.js', 'js/blog.js')
+    .sass( __dirname + '/Resources/assets/sass/app.scss', 'css/blog.css');
+
+if (mix.inProduction()) {
+    mix.version();
+}
