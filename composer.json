@@ -1,5 +1,5 @@
 {
-    "name": "laravel/laravel",
+    "name": "alladin/blog-module",
     "type": "laravel-module",
     "description": "The Laravel Framework.",
     "keywords": ["framework", "laravel"],
