@@ -8,6 +8,9 @@
             "email": "melico.alladin@gmail.com"
         }
     ],
+    "require": {
+        "alladin/blog-module": "dev-main"
+    },
     "extra": {
         "laravel": {
             "providers": [],
